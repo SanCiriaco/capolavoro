@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<title>Azienda Agricola "La Tatina"</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(34, 139, 34, 0.8);
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header {
+  position: relative;
+  background-image: url("casa.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 100px 100px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.header h2, .header button {
+  position: relative;
+  z-index: 1;
+  font-family: 'Lora', serif;
+}
+
+.header .motto {
+  font-size: 20px;
+  color: #d2b48c;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.section {
+  padding: 60px 10px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: 'Lora', serif;
+}
+
+.section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.section .btn {
+  font-size: 18px;
+}
+
+.quote {
+  background-color: #8B4513;
+  color: white;
+  padding: 60px 10px;
+  text-align: center;
+}
+
+.quote h1 {
+  font-size: 40px;
+  margin: 0;
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+.gallery {
+  padding: 60px 10px;
+  text-align: center;
+}
+
+.gallery img {
+  margin: 10px;
+  width: calc(25% - 20px);
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .gallery img {
+    width: calc(100% - 20px);
+  }
+
+  .header {
+    padding: 100px 50px 50px;
+  }
+}
+
+.section.bg-image {
+  background-image: url('prodotti.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.section.bg-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.section.bg-image .content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .about img {
+    display: none;
+  }
+}
+
+.footer {
+  background-color: #8B4513;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-family: 'Lora', serif;
+}
+
+.footer a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+}
+
+
+.section.bg-light.about {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.section.bg-light.about h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.col-md-6 p {
+  margin-bottom: 15px;
+}
+
+.col-md-6 h3 {
+  margin-top: 30px;
+  font-size: 1.5em;
+  color: #555;
+}
+
+iframe {
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.col-md-6 img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+
+}
+</style>
+</head>
+<body>
+
+<div class="header" id="home">
+  <h2 style="font-size: 90px;">Azienda Agricola "La Tatina"</h2>
+  <br>
+  <button type="button" style="font-size: 25px;" class="btn btn-success" onclick="window.location.href='negozio.html';">Compra i nostri prodotti</button>
+</div>
+
+<div class="quote">
+  <h1>"Seme dopo seme, coltiviamo il futuro con le radici del passato"</h1>
+</div>
+
+<div class="section bg-light about" id="about">
+  <h1>Chi Siamo</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <p>La nostra azienda agricola è nata dalla passione per la terra e per i prodotti genuini. Da generazioni, coltiviamo con cura e dedizione, rispettando i cicli naturali e valorizzando le tradizioni contadine. Offriamo ai nostri clienti prodotti di alta qualità, coltivati con metodi sostenibili.</p>
+      <p>La nostra missione è quella di promuovere un'agricoltura rispettosa dell'ambiente e delle persone, garantendo alimenti sani e saporiti.</p>
+      <h3>Guarda questo video per scoprire di più sulla nostra storia.</h3> 
+      <iframe width="560" height="415" src="https://www.youtube.com/embed/EnysMXAaTug?si=9Z1_YGpy2m-id94s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-6">
+      <img src="nella.jpg" alt="Nella">
+    </div>
+  </div>
+</div>
+
+<div class="section bg-image" id="products">
+  <div class="content">
+    <h2>I Nostri Prodotti</h2>
+    <p>Esplora i nostri prodotti freschi e genuini, disponibili per l'acquisto online.</p>
+    <button type="button" class="btn btn-success" onclick="window.location.href='negozio.html';">Visita il negozio</button>
+  </div>
+</div>
+
+<div class="section bg-light" id="contact">
+  <h2>Dove ci troviamo?</h2>
+  <p>Nel paesino di San Martino di Finita</p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.591016580831!2d16.14423377666465!3d39.47856727160585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133fa15a8f668597%3A0x43d280568c2ced82!2sAzienda%20Agricola%20La%20Tatina!5e0!3m2!1sit!2sit!4v1716652465799!5m2!1sit!2sit" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
+  <div class="footer">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=100063608919502" target="_blank"><img src="facebook_logo.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/azienda.latatina/" target="_blank"><img src="instagram_logo.webp" alt="Instagram"></a>
+    </div>
+    <br>
+    <p> 2024 Azienda Agricola "La Tatina". Tutti i diritti riservati.</p>
+  </div>
+</body>
+</html>
+  

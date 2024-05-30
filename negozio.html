@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<title>Negozio - Azienda Agricola "La Tatina"</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Torna alla Home</a>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Pane Integrale Fatto in Casa</h5>
+          <img src="pane-semi-integrale.jpg" class="card-img-top" alt="Immagine del prodotto 1" style="max-width: 200px; height: auto;">
+          <p class="card-text">€2</p>
+          <a href="#" class="btn btn-success" onclick="aggiungiAlCarrello('Pane Integrale', 2)">Aggiungi al Carrello</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">6 Bucchinotti fatti in casa</h5>
+          <img src="bucchinotti.jpg" class="card-img-top" alt="Immagine del prodotto 2" style="max-width: 200px; height: auto;">
+          <p class="card-text">€7</p>
+          <a href="#" class="btn btn-success" onclick="aggiungiAlCarrello('Bucchinotti', 7)">Aggiungi al Carrello</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Crostata Fatta in casa</h5>
+          <img src="crostata.jpg" class="card-img-top" alt="Immagine del prodotto 3" style="max-width: 200px; height: auto;">
+          <p class="card-text">€10</p>
+          <a href="#" class="btn btn-success" onclick="aggiungiAlCarrello('Crostata Fatta in Casa', 10)">Aggiungi al Carrello</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Fresina Fatta in casa</h5>
+          <img src="fresina.jpg" class="card-img-top" alt="Immagine del prodotto 4" style="max-width: 200px; height: auto;">
+          <p class="card-text">€1,50</p>
+          <a href="#" class="btn btn-success" onclick="aggiungiAlCarrello('Fresina Fatta in Casa', 1.50)">Aggiungi al Carrello</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Passata di pomodoro</h5>
+          <img src="passatadipomodo.jpg" class="card-img-top" alt="Immagine del prodotto 5" style="max-width: 200px; height: auto;">
+          <p class="card-text">€3,50</p>
+          <a href="#" class="btn btn-success" onclick="aggiungiAlCarrello('Passata di pomodoro', 3.50)">Aggiungi al Carrello</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Farina Semi-Integrale di grano timilia</h5>
+          <img src="farina.jpg" class="card-img-top" alt="Immagine del prodotto 6" style="max-width: 200px; height: auto;">
+          <p class="card-text">€4,50</p>
+          <a href="#" class="btn btn-success" onclick="aggiungiAlCarrello('Farina Semi-Integrale di grano timilia', 4.50)">Aggiungi al Carrello</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+      <h2>Carrello</h2>
+      <ul id="cart-items">
+      </ul>
+      <hr>
+      <p id="total-price">Totale: €0</p>
+      <button class="btn btn-danger btn-block" onclick="ripulisciCarrello()">Elimina tutti i prodotti nel Carrello</button>
+
+      <a href="checkout.html" class="btn btn-primary btn-block">Vai al Checkout</a>
+    </div>
+  </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<title>Negozio - Azienda Agricola "La Tatina"</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Pane Integrale Fatto in Casa</h5>
+          <img src="pane-semi-integrale.jpg" class="card-img-top" alt="Immagine del prodotto 1" style="max-width: 200px; height: auto;">
+          <p class="card-text">€2</p>
+          <button class="btn btn-success" onclick="aggiungiAlCarrello('Pane Integrale', 2)">Aggiungi al Carrello</button>
+        </div>
+      </div>
+
+
+    </div>
+
+
+<script>
+  var totale = 0;
+  var carrello = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function aggiungiAlCarrello(nomeProdotto, prezzo) {
+    var articoloCarrello = document.createElement('li');
+    articoloCarrello.textContent = nomeProdotto + ' - €' + prezzo.toFixed(2);
+
+    document.getElementById('cart-items').appendChild(articoloCarrello);
+
+    carrello.push({ nome: nomeProdotto, prezzo: prezzo });
+    localStorage.setItem('cart', JSON.stringify(carrello));
+
+    totale += prezzo;
+    document.getElementById('total-price').textContent = 'Totale: €' + totale.toFixed(2);
+  }
+
+  function ripulisciCarrello() {
+    document.getElementById('cart-items').innerHTML = '';
+    localStorage.removeItem('cart');
+    totale = 0;
+    document.getElementById('total-price').textContent = 'Totale: €' + totale.toFixed(2);
+  }
+
+  function caricaCarrello() {
+    carrello.forEach(function(prodotto) {
+      var articoloCarrello = document.createElement('li');
+      articoloCarrello.textContent = prodotto.nome + ' - €' + prodotto.prezzo.toFixed(2);
+
+      document.getElementById('cart-items').appendChild(articoloCarrello);
+      totale += prodotto.prezzo;
+    });
+    document.getElementById('total-price').textContent = 'Totale: €' + totale.toFixed(2);
+  }
+
+  document.addEventListener('DOMContentLoaded', caricaCarrello);
+</script>
+</body>
+</html>
+
+</body>
+</html>
+
